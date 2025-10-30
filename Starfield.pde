@@ -1,20 +1,23 @@
-//your code here
-void setup()
+Particle[] p = new Particle[100];
+public void setup()
 {
-	//your code here
+  size(500,500);
+  for(int i=0; i<100; i++){
+    p[i]=new Particle();
+  }
+  p[0]=new OddballParticle();
 }
-void draw()
+public void draw()
 {
-	//your code here
+  fill(0,0,0,50);
+  rect(-5,-5,1000,1000);
+  for (int i = 0; i < p.length; i++) {
+    p[i].move();
+    p[i].show();
+  }
 }
-class Particle
-{
-	//your code here
+public void mousePressed(){
+  for (int i = 1; i < p.length; i++) {
+    p[i].respawn();
+  }
 }
-
-class OddballParticle //inherits from Particle
-{
-	//your code here
-}
-
-
